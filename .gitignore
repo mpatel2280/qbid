@@ -1,0 +1,13 @@
+vendor/
+tmp/
+log/
+log/development.log
+tmp/cache
+tmp/cache/assets/sprockets/
+temp_files/
+
+public/assets/
+
+.byebug_history
+
+script_run/
