@@ -1,3 +1,5 @@
 rails new qbid
 rails server
 rails db:create
+rake db:migrate
+rake db:seed

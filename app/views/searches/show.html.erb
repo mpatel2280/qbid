@@ -1,0 +1,66 @@
+<div class="list-group">
+  <a href="#" class="list-group-item selected">
+    <h4 class="list-group-item-heading">Search Result</h4>
+  </a>
+</div>
+
+<% if @search.search_auctions.empty? %>
+    <div class ="col-xs-12 col-md-12"style= "width:100%; height:31rem; background-color:#f4f4f4">
+        <div class="no-image-massage"> 
+            No Search Result Found...!!!
+        </div>
+    </div>
+    <%= link_to 'Back', :back, class: "btn btn-default btn-md"%>
+<% end %>
+
+<% @search.search_auctions.each do |auction| %>
+  <% if true %> 
+      <div class="col-sm-6 col-md-4 "style="padding:0rem;">
+        <div class="thumbnail home-page-touchup">
+          
+          <% if auction.image.attached? %>
+              <%= image_tag(auction.image, style:"height:24.1rem; width:100%") if auction.image.attached? %>
+          <% else %>
+              <div class ="col-xs-12 col-md-12 "style= "width:100%; height:24.1rem; background-color:#f4f4f4">
+                  <div class="no-image-massage"> 
+                      No Image Available
+                  </div>
+              </div>
+          <% end %>
+          
+          <div class="caption">
+            <h4 class="center">
+              <small>STARTING BID:</small> <%= auction.starting_bid %> &#x20B9; <br> 
+              <small>CURRENT PRICE:</small> <%= auction.current_price %> &#x20B9;<br>
+              <% if auction.bidder %>
+                <small>CURRENT BIDDER:</small> <%= get_user(auction.bidder).full_name%>
+              <% else %>
+                 <small>No bidding found </small>
+              <% end %>
+            </h4>
+            <h3 class="center"><%= auction.name %></h3>
+            <p class="center"><%= truncate(auction.description, :ommision => ".... Read More", :length => 150) %></p>
+            
+            <p class="center">
+              <%= link_to 'Bid Now', new_bid_path(:id => auction.id), class: "btn btn-sm btn-primary" %> 
+              <%= link_to 'Products Details', auction, class:"btn btn-sm btn-default" %> 
+              <%= link_to 'All bids', bids_path(:id => auction.id), class: "btn btn-sm btn-default"%> 
+            </p>
+    
+              <small>    
+                  added for auction: <%= time_ago_in_words(auction.created_at)%> ago
+              </small>
+              <h4>
+                <% if in_progress?(auction.id) %> 
+                  auction ends in: <strong><%= time_ago_in_words(auction.deadline) %></strong>
+                <% else %>
+                  Deadline was: <%= auction.deadline.strftime("%B %d, %Y | %l:%M %p") %>
+                <% end %>
+              </h4>
+  
+          </div>
+        </div>
+      </div>
+  <% end %>
+<% end %>
+

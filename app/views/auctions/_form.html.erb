@@ -1,0 +1,39 @@
+<div class="row" style="margin:3rem;">
+    <div class="col-sm-offset-2 col-xs-8">
+      <%= form_with(model: auction, local: true) do |form| %>
+        <%= render "devise/shared/error_messages", resource: auction %>
+
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control", placeholder: "Enter name of product" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_area :description, class: "form-control", placeholder:"Enter description" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :starting_bid %>
+          <%= form.text_field :starting_bid, class: "form-control", placeholder:"Enter min reserve price" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :deadline %>
+          <%= form.datetime_select :deadline, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :image %>
+          <%= form.file_field :image, class: "form-control" %>
+        </div>
+
+        <div class="form-group center"style="margin-top:3rem;">
+          <%= form.submit class: "btn btn-primary btn-md"%> 
+        </div>
+        <div class= "center">
+          [ <%= link_to 'Show', @auction %> | <%= link_to 'Back', :back %> ]
+        </div>
+      <% end %>
+    </div>
+</div>
