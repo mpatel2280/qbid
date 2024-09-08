@@ -4,8 +4,8 @@ source "https://rubygems.org"
 gem "rails", "~> 7.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 1.4"
+# Use postgresql as the database for Active Record
+gem "pg"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -54,4 +54,32 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'chromedriver-helper'
 end
+
+
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem 'sass-rails'
+gem "font-awesome-rails"
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+# gem 'mini_racer', platforms: :ruby
+gem 'devise'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks'
+
+# Debug
+gem 'byebug', group: :development
+
+group :development do
+  gem 'listen'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen'
+end
+
+# gem "rake", "~> 13.0"
