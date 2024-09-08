@@ -18,6 +18,7 @@ class AuctionsTest < ApplicationSystemTestCase
     fill_in "Current price", with: @auction.current_price
     fill_in "Deadline", with: @auction.deadline
     fill_in "Description", with: @auction.description
+    fill_in "Category", with: @auction.category
     fill_in "Name", with: @auction.name
     fill_in "Starting bid", with: @auction.starting_bid
     click_on "Create Auction"
@@ -34,6 +35,7 @@ class AuctionsTest < ApplicationSystemTestCase
     fill_in "Current price", with: @auction.current_price
     fill_in "Deadline", with: @auction.deadline
     fill_in "Description", with: @auction.description
+    fill_in "Category", with: @auction.category
     fill_in "Name", with: @auction.name
     fill_in "Starting bid", with: @auction.starting_bid
     click_on "Update Auction"
