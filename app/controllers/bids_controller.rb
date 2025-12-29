@@ -34,7 +34,8 @@ class BidsController < ApplicationController
         @bid = Bid.new(@bid_params)
         @bid.amount = params[:bid][:amount]
 
-        if ( @auction != nil and @bid.amount != nil and can_vote?(@auction.id, @bid.amount) )
+        # if ( @auction != nil and @bid.amount != nil and can_vote?(@auction.id, @bid.amount) )
+        if ( @auction != nil and @bid.amount != nil )
             @bid.user = current_user
             @bid.auction_id = @auction.id
             @auction.bidder = current_user.id

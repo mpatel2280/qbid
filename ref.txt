@@ -6,3 +6,17 @@ rake db:seed
 
 rails generate migration AddCategoryToAuctions category:string
 rails db:migrate:up VERSION=20240908085721
+
+admin@admin.com / 123456
+
+
+https://github.com/capistrano/capistrano
+
+bundle exec cap install STAGES=local,sandbox,qa,production
+
+bundle exec cap local deploy --dry-run
+
+
+docker build - < Dockerfile
+docker image ls
+docker run <image_id>
